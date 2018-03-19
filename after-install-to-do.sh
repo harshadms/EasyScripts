@@ -37,6 +37,7 @@ sudo apt install aircrack-ng &&
 sudo apt install python-pip &&
 sudo apt install python-setuptools &&
 sudo apt install build-essential &&
+sudo apt install unetbootin &&
 
 ################# atom  #################
 
