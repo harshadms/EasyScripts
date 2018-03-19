@@ -62,6 +62,9 @@ sudo apt-get install paper-gtk-theme &&
 sudo apt install numix-gtk-theme &&
 sudo apt install numix-icon-theme &&
 sudo apt-get install unity-tweak-tool &&
+sudo add-apt-repository ppa:trentaos-team/rainier &&
+sudo apt-get update &&
+sudo apt-get install rainier-theme-pack &&
 
 ################# GOOGLE CHROME #####################
 
