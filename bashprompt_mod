@@ -1,0 +1,32 @@
+Paste into /etc/bash.bashrc
+
+figlet -f standard "B . Bugs"
+
+counter=`cat /etc/count.cnt`
+if [ $counter == "" ];
+then
+        counter=1
+else
+        ((counter++))
+fi
+
+printf "Terminal # $counter\n\n"
+
+ip_wlan=`ifconfig wlp3s0 | grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1`
+ip_eth=`ifconfig enp2s0 | grep "inet\ addr" | cut -d: -f2 | cut -d" " -f1`
+
+if [ "$ip_wlan" == "" ];
+then
+        printf "WLAN: -NA-"
+else
+        printf "WLAN: $ip_wlan"
+fi
+
+if [ "$ip_eth" == "" ];
+then
+        printf "\nEthernet: -NA-\n"
+else
+        printf "\nEthernet: $ip_eth\n"
+fi
+
+echo $counter > /etc/count.cnt
