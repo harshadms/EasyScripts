@@ -107,4 +107,19 @@ curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/t
 chmod +x msfinstall.sh &&
 ./msfinstall &&
 
+################# Texlive  #####################
+
+sudo apt install texlive &&
+sudo apt install texlive-bibtex-extra &&
+sudo apt install texlive-latex-extra &&
+sudo apt install texlive-science &&
+
+################# Citrix Receiver  #####################
+
+sudo apt install icaclient &&
+xdg-mime default wfica.desktop application/x-ica &&
+sudo ln -s /usr/share/ca-certificates/mozilla/* /opt/Citrix/ICAClient/keystore/cacerts/ &&
+
+
+
 echo ".\n.\n.\n.\n.\n.\n.ALL DONE ENJOY.\n Now Set the Nvidia Drivers Manually from here => https://help.ubuntu.com/community/BinaryDriverHowto/Nvidia"
