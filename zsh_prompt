@@ -11,9 +11,7 @@ else
 fi
 
 # RubyRussell-inspired prompt with SSH awareness
-PROMPT="${SSH_PROMPT}[${HOST_DISPLAY}]:"  # SSH context + hostname
-PROMPT+='%(?:%F{green}%1{➜%}%f :%F{red}%1{➜%}%f )'  # Status arrow
-PROMPT+='%F{cyan}%c%f '  # Current directory
+PROMPT="${SSH_PROMPT}[${HOST_DISPLAY}]:%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%} "
 
 # Git integration
 PROMPT+='$(git_prompt_info)'
