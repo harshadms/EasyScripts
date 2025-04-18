@@ -1,0 +1,25 @@
+# Hostname color generator (persistent across sessions)
+host_color=$((16 + (0x$(hostname | cksum | cut -d' ' -f1) % 230)))
+
+# SSH context detection
+if [[ -n "$SSH_CONNECTION" ]]; then
+  SSH_PROMPT="%F{white}(SSH) "  # White SSH indicator
+  HOST_DISPLAY="%F{$host_color}%m%f"  # Full hostname in SSH
+else
+  SSH_PROMPT=""
+  HOST_DISPLAY="%F{$host_color}%M%f"  # Short hostname locally
+fi
+
+# RubyRussell-inspired prompt with SSH awareness
+PROMPT="${SSH_PROMPT}[${HOST_DISPLAY}]:"  # SSH context + hostname
+PROMPT+='%(?:%F{green}%1{➜%}%f :%F{red}%1{➜%}%f )'  # Status arrow
+PROMPT+='%F{cyan}%c%f '  # Current directory
+
+# Git integration
+PROMPT+='$(git_prompt_info)'
+
+# Git prompt styling
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{blue}git:(%f%F{red}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%f "
+ZSH_THEME_GIT_PROMPT_DIRTY="%F{blue}) %F{yellow}%1{✗%}%f"
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{blue})%f"
