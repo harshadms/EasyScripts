@@ -27,7 +27,7 @@ source $ZSH/oh-my-zsh.sh
 EOL
 
 # Install custom prompt (replace URL with your actual prompt file)
-curl -L https://gist.githubusercontent.com/your-account/your-prompt/raw/main/.zsh_prompt -o ~/.zsh_prompt
+curl -L https://raw.githubusercontent.com/harshadms/EasyScripts/refs/heads/master/zsh_prompt -o ~/.zsh_prompt
 
 # Set as default shell
 sudo chsh -s $(which zsh) $(whoami)
